@@ -1,14 +1,22 @@
 class MoviesFactory {
     constructor(data, type) {
-        // Si le type correspond à l'ancienne API, alors retourne moi l'ancien formattage
-        if (type === 'oldApi') {
-            return new OldMovie(data)
-        // Sinon retourne moi le nouveau formattage
-        } else if (type === 'newApi') {
-            return new Movie(data)
-        // Une bonne pratique est de throw une erreur si le format n'est pas reconnu
-        } else {
-            throw 'Unknown type format'
+        switch (type) {
+            case 'oldApi':
+            // Si le type correspond à l'ancienne API, alors retourne moi l'ancien formattage
+                return new OldMovie(data);
+                break;
+            case 'newApi':
+            // Sinon retourne moi le nouveau formattage
+                return new Movie(data);
+                break;
+            case 'externalApi':
+            // Sinon retourne moi le formattage externe
+                return new ExternalMovie(data);
+                break;
+            default:
+            // Une bonne pratique est de throw une erreur si le format n'est pas reconnu
+                throw new Error('Unknown type format');
+                break;
         }
     }
 }
