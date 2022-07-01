@@ -5,6 +5,6 @@ class FilterMoviesAdapter {
     }
 
     async filterByActor() {
-        return FilterV2.filterByActor(this._actor, this._Movies)
+        return await FilterV2.filterByActor(this._actor, this._Movies)
     }
 }
