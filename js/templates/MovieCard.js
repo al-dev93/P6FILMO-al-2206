@@ -13,7 +13,7 @@ class MovieCard {
     handleWishButton() {
         const that = this
         const $cardHearth = this.$wrapper.querySelector('.wish-btn')
-        $cardHearth.addEventListener("click", () => {
+        $cardHearth.addEventListener("click", function() {
             if(this.classList.contains('wished')) {
                 this.classList.remove('wished')
                 that._wishListSubject.fire('decrease')
