@@ -1,7 +1,7 @@
 class MovieCard {
-    constructor(movie) {
+    constructor(movie, wishListSubject) {
         this._movie = movie
-
+        this._wishListSubject = wishListSubject
         this.$wrapper = document.createElement('div')
         this.$wrapper.classList.add('movie-card-wrapper')
     }
@@ -11,6 +11,17 @@ class MovieCard {
     }
 
     handleWishButton() {
+        const that = this
+        const $cardHearth = this.$wrapper.querySelector('.wish-btn')
+        $cardHearth.addEventListener("click", () => {
+            if(this.classList.contains('wished')) {
+                this.classList.remove('wished')
+                that._wishListSubject.fire('decrease')
+            } else {
+                this.classList.add('wished')
+                that._wishListSubject.fire('increase')
+            }
+        })
     }
 
     createMovieCard() {
