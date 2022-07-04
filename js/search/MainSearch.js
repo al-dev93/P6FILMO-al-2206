@@ -4,7 +4,7 @@ class Search {
     }
 
     search(query) {
-        return filterMovies(query)
+        return this.filterMovies(query)
     }
 }
 
@@ -15,7 +15,7 @@ class MovieNameSearch extends Search {
     }
     
     filterMovies(query){
-        return this.Movies.filter(movie => movie.title.toLowerCase.includes(query.toLowerCase()))
+        return this.Movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
     }
 }
 
@@ -27,6 +27,6 @@ class ActorNameSearch extends Search {
 
     filterMovies(query){
         
-        return this.Movies.filter(movie => movie.actor.toLowerCase.includes(query.toLowerCase()))
+        return this.Movies.filter(movie => movie.actor.toLowerCase().includes(query.toLowerCase()))
     }
 }
